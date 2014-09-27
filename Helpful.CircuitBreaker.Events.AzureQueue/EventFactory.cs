@@ -13,6 +13,10 @@
         {
             _closedEvent = new ClosedEvent(queue);
             _openedEvent = new OpenedEvent(queue);
+            _registerBreakerEvent = new RegisterBreakerEvent(queue);
+            _tryingToCloseEvent = new TryingToCloseEvent(queue);
+            _unregisterBreakerEvent = new UnregisterBreakerEvent(queue);
+            _tolleratedOpenEvent = new TolleratedOpenEvent(queue);
         }
 
         public IClosedEvent GetClosedEvent()

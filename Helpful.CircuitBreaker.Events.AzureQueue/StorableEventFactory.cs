@@ -16,8 +16,16 @@ namespace Helpful.CircuitBreaker.Events.AzureQueue
         {
             StorableOpenedBreakerEvent sEvent = new StorableOpenedBreakerEvent();
             BuildStorableEvent<T>(sEvent, definition);
-            sEvent.Reason = reason;
-            sEvent.Exception = exception;
+            BuildOpenEvent<T>(reason, exception, sEvent);
+            return sEvent;
+        }
+
+        public static StorableEvent BuildEvent<T>(ICircuitBreakerDefinition definition, BreakerOpenReason reason, Exception exception, short tolleratedOpenEventCount)
+        {
+            StorableTolleratedOpenedBreakerEvent sEvent = new StorableTolleratedOpenedBreakerEvent();
+            BuildStorableEvent<T>(sEvent, definition);
+            BuildOpenEvent<T>(reason, exception, sEvent);
+            sEvent.TolleratedOpenEventCount = tolleratedOpenEventCount;
             return sEvent;
         }
 
@@ -26,6 +34,12 @@ namespace Helpful.CircuitBreaker.Events.AzureQueue
             sEvent.Stream = typeof (T).Name;
             sEvent.Category = definition.BreakerId;
             sEvent.Data = definition;
+        }
+
+        private static void BuildOpenEvent<T>(BreakerOpenReason reason, Exception exception, StorableOpenedBreakerEvent sEvent)
+        {
+            sEvent.Reason = reason;
+            sEvent.Exception = exception;
         }
     }
 }
