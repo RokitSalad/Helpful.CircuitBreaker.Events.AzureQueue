@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Helpful.CircuitBreaker.Events.AzureQueue
+﻿namespace Helpful.CircuitBreaker.Events.AzureQueue
 {
-    public class EventFactory : IEventFactory
+    internal class EventFactory : IEventFactory
     {
         private readonly IClosedEvent _closedEvent;
         private readonly IOpenedEvent _openedEvent;
@@ -14,8 +9,10 @@ namespace Helpful.CircuitBreaker.Events.AzureQueue
         private readonly IUnregisterBreakerEvent _unregisterBreakerEvent;
         private readonly ITolleratedOpenEvent _tolleratedOpenEvent;
 
-        public EventFactory()
+        public EventFactory(IAzureQueue queue)
         {
+            _closedEvent = new ClosedEvent(queue);
+            _openedEvent = new OpenedEvent(queue);
         }
 
         public IClosedEvent GetClosedEvent()
