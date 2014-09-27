@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Helpful.CircuitBreaker.Events.AzureQueue</id>
+    <version>1.0.1</version>
+    <title>Helpful.CircuitBreaker.Events.AzureQueue</title>
+    <authors>RokitSalad</authors>
+    <owners>RokitSalad</owners>
+    <licenseUrl>https://github.com/RokitSalad/Helpful.CircuitBreaker.Events.AzureQueue/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/RokitSalad/Helpful.CircuitBreaker.Events.AzureQueue</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An implementation of Helpful.CircuitBreaker.Events which writes the StorableEvent to an Azure Queue</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>Azure, Helpful, dFine, c#, Circuit Breaker</tags>
+    <dependencies>
+      <dependency id="Helpful.CircuitBreaker.Events" version="1.0.2" />
+      <dependency id="Microsoft.Data.Edm" version="5.6.2" />
+      <dependency id="Microsoft.Data.OData" version="5.6.2" />
+      <dependency id="Microsoft.Data.Services.Client" version="5.6.2" />
+      <dependency id="Microsoft.WindowsAzure.ConfigurationManager" version="2.0.3" />
+      <dependency id="Newtonsoft.Json" version="6.0.5" />
+      <dependency id="System.Spatial" version="5.6.2" />
+      <dependency id="WindowsAzure.Storage" version="4.3.0" />
+    </dependencies>
+  </metadata>
+</package>
